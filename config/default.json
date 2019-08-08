@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://ash123:sKf8fej7m43ZfO8A@mern-stack-tutorial-nyja3.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "29481c5bb64f12ac7a36",
+  "githubSecret": "d8a1fe9cf5909b7b6499bbf865085abc0a2e4916"
 }
