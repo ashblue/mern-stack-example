@@ -120,7 +120,7 @@ router.get('/', async (req, res) => {
       'avatar',
     ]);
 
-    res.json(profiles);
+    await res.json(profiles);
   } catch (e) {
     console.error(e.message);
     res.status(500).send('Server Error');
