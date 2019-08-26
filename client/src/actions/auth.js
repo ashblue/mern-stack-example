@@ -13,6 +13,9 @@ import {
 
 export const loadUser = () => async dispatch => {
   if (!localStorage.token) {
+    dispatch({
+      type: AUTH_ERROR,
+    });
     return;
   }
 
@@ -26,7 +29,7 @@ export const loadUser = () => async dispatch => {
   } catch (e) {
     dispatch({
       type: AUTH_ERROR,
-    })
+    });
   }
 };
 

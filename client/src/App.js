@@ -7,12 +7,14 @@ import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
 import setAuthToken from "./utils/setAuthToken";
 import store from './store';
+import Dashboard from "./components/dashboard/Dashboard";
 
 import {Provider} from 'react-redux';
 import {loadUser} from './actions/auth';
 
 import './App.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -20,7 +22,7 @@ if (localStorage.token) {
 
 const App = () => {
   useEffect(() => {
-    store.dispatch(loadUser())
+    store.dispatch(loadUser());
   }, []);
 
   return (<Provider store={store}>
@@ -34,6 +36,7 @@ const App = () => {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
           </Switch>
         </section>
       </Fragment>
