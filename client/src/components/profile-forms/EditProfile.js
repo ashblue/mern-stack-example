@@ -10,6 +10,7 @@ const EditProfile = ({
    getCurrentProfile,
    history,
 }) => {
+  // @TODO This is stupid and should be a class to avoid repeating variables
   const [formData, setFormData] = useState({
     company: '',
     website: '',
