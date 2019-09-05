@@ -8,6 +8,7 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileGitHub from "./ProfileGitHub";
 
 const Profile = (
   {
@@ -76,6 +77,10 @@ const Profile = (
                 <h2 className="text-primary">Education</h2>
                 {printEducation(profile.education)}
               </div>
+
+              {profile.githubusername && (
+                <ProfileGitHub username={profile.githubusername} />
+              )}
             </div>
           </Fragment>
       }
