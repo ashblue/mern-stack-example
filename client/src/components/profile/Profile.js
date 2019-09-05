@@ -6,6 +6,8 @@ import Spinner from "../layout/Spinner";
 import {Link} from "react-router-dom";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
+import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
 
 const Profile = (
   {
@@ -18,6 +20,30 @@ const Profile = (
   useEffect(() => {
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);
+
+  function printExperience(experience) {
+    if (experience.length === 0) {
+      return <h4>No experience credentials</h4>;
+    }
+
+    return <Fragment>
+      {experience.map(exp => (
+        <ProfileExperience key={exp._id} experience={exp} />
+      ))}
+    </Fragment>;
+  }
+
+  function printEducation(education) {
+    if (education.length === 0) {
+      return;
+    }
+
+    return <Fragment>
+      {education.map(edu => (
+        <ProfileEducation key={edu._id} education={edu} />
+      ))}
+    </Fragment>;
+  }
 
   return (
     <Fragment>
@@ -40,6 +66,16 @@ const Profile = (
             <div className="profile-grid my-1">
               <ProfileTop profile={profile} />
               <ProfileAbout profile={profile} />
+
+              <div className="profile-exp bg-white p-2">
+                <h2 className="text-primary">Experience</h2>
+                {printExperience(profile.experience)}
+              </div>
+
+              <div className="profile-edu bg-white p-2">
+                <h2 className="text-primary">Education</h2>
+                {printEducation(profile.education)}
+              </div>
             </div>
           </Fragment>
       }
