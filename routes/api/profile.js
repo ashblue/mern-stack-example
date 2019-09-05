@@ -112,7 +112,7 @@ router.post(
 );
 
 // @route GET api/profile
-// @desc Get all profiles
+// @desc Get all profileCollection
 // @access Public
 router.get('/', async (req, res) => {
   try {
